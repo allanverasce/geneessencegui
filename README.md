@@ -17,5 +17,13 @@
 <img width="50" height="50" alt="image" src="https://github.com/user-attachments/assets/839d6c26-8c29-48a2-ac95-29be48d066bd" />
 
 # Installation and User Guide 
+<p align="justify">To run GeneEssenceGUI, you must install Python 3.12 or higher on your system. The installer can be obtained from the official website: Download Python.</p>
+
+### Windows Installation
+1. Download the Python installer (python-12.x.x.exe) from the official website.
+2. Run the installer and check "Add Python to PATH" before proceeding.
+3. Click "Install Now" and wait for the installation to complete.
+4. Verify the installation by opening the command Prompt and running: python --version
+
 
 
