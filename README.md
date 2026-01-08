@@ -16,9 +16,10 @@
 <image src="https://github.com/allanverasce/allanverasce/assets/25986290/3f178481-786d-4e6f-b46f-7e10732e9ca8" alt="Image" width="50"/>
 <img width="50" height="50" alt="image" src="https://github.com/user-attachments/assets/839d6c26-8c29-48a2-ac95-29be48d066bd" />
 
-# Installation and User Guide 
+# 1. Installation and User Guide 
 <p align="justify">To run GeneEssenceGUI, you must install Python 3.12 or higher on your system. The installer can be obtained from the official website: Download Python.</p>
 
+## 1.2. Installation of dependencies
 ### Windows Installation
 1. Download the Python installer (python-12.x.x.exe) from the official website.
 2. Run the installer and check "Add Python to PATH" before proceeding.
@@ -35,7 +36,7 @@
 3. Install Python using Homebrew: brew install python
 4. Verify the installation: python3 --version
 
-## Running the software
+## 2. Running the software
 <p>After downloading, follow the instructions according to your operating system: </p>
 
 ### Linux and macOS
@@ -57,21 +58,21 @@ chmod 777 GeneEssenceGUI
 ```
 - Windows: Right-click on the executable and select "Run as administrator". This ensures the software has the necessary permissions to access system resources, preventing execution errors and enhancing compatibility with dependencies.
 
-## Dataset Model
-<p align="justify">For GeneEssenceGUI to function correctly, the dataset shown in Figure 1 must be in CSV (Comma-Separated Values) format. This format organizes data into rows and columns, each representing a data instance and containing a characteristic gene variable. To simplify data preparation, we provide a processing script that converts your files into the format the software accepts.</p>
+## 3. Dataset Model
+<p align="justify">For GeneEssenceGUI to function correctly, the dataset must be in CSV (Comma-Separated Values) format. This format organizes data into rows and columns, each representing a data instance and containing a characteristic gene variable. To simplify data preparation, we provide a processing script that converts your files into the format the software accepts.</p>
 <p align="center">
 <img src="screenshots/figure3.jpeg" alt="Logo" width="600" height="500" />
 </p>
 
-## Main Window
+## 4. Main Window
 <p align="justify">When you start running the software, the GeneEssenceGUI main window appears below. The window contains a welcome message and a brief description of the tool's main features, along with information about the partners involved in the project. To start using the software, click the "Start" button.</p>
 
 <p align="center">
 <img src="screenshots/mainW.png" alt="Logo" width="800" height="600" />
 </p>
 
-## Analysis Type Selection Window
-The next window shows the user the types of analysis available in the tool, as shown in Figure 3. At this stage, the user can choose between three analysis options, depending on their needs: training, prediction or ensemble.
+## 5. Analysis Type Selection Window
+The next window shows the user the types of analysis available in the tool. At this stage, the user can choose between three analysis options, depending on their needs: training, prediction or ensemble.
 - **Training:** During the training process, the machine learning model is trained using a data set. During this step, the model analyzes the data provided to identify patterns and learn how to make predictions based on them.
 - **Prediction:** Prediction is the phase in which a previously trained model is used to analyze new data. Based on the knowledge acquired during training, the model concludes, in this case, the classification of essential genes in unknown data.
 - **Ensemble:** Ensemble refers to an advanced technique in which multiple machine learning models are combined to improve the performance of the resulting model and thus the evaluation metrics. This approach reduces the risk of overfitting and makes the model more robust. By combining different analysis methods, a more reliable performance is ensured.
@@ -80,18 +81,20 @@ The next window shows the user the types of analysis available in the tool, as s
 <img src="screenshots/Figure9.jpeg" alt="Logo" width="800" height="600" />
 </p>
 
-## Training: How to train the models?
-On your first access, you will be shown a window for creating a new training project (figure 4), in which you will have a field to provide the project's identification name and then select the tabular dataset file for training.
-Finally, the user will be able to define the proportion of the dataset to be used for testing the models during this stage, the percentage of this dataset being set directly in the interface.
+### 5.1. Training: How to train the models?
+<p align="justify"> On your first access, you will be shown a window for creating a new training project, in which you will have a field to provide the project's identification name and then select the tabular dataset file for training.
+Finally, the user will be able to define the proportion of the dataset to be used for testing the models during this stage, the percentage of this dataset being set directly in the interface.</p>
 
 <p align="center">
 <img src="screenshots/train.png" alt="Logo" width="800" height="600" />
 </p>
 
+### 5.2. Model Selection Window
+The next window allows the user to select the models to be trained. There are 8 types of models available, and the user can choose one or more of them.      
 
-
-## Model Selection Window
-The next window (Figure 5) allows the user to select the models to be trained. There are 8 types of models available, and the user can choose one or more of them.      
+<p align="center">
+<img src="screenshots/selectModels.png" alt="Logo" width="800" height="600" />
+</p>
 
 
 Next to each model, there are two icons: the first opens the model parameters window, allowing the user to define each parameter or leave the default values (Figure 6); the second icon redirects the user to the model documentation, providing detailed information about it (Figure 7).
