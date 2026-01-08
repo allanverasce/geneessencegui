@@ -80,11 +80,71 @@ The next window shows the user the types of analysis available in the tool, as s
 <img src="screenshots/Figure9.jpeg" alt="Logo" width="800" height="600" />
 </p>
 
+## Training: How to train the models?
+On your first access, you will be shown a window for creating a new training project (figure 4), in which you will have a field to provide the project's identification name and then select the tabular dataset file for training.
+Finally, the user will be able to define the proportion of the dataset to be used for testing the models during this stage, the percentage of this dataset being set directly in the interface.
+
+
+## Model Selection Window
+The next window (Figure 5) allows the user to select the models to be trained. There are 8 types of models available, and the user can choose one or more of them.      
+
+
+Next to each model, there are two icons: the first opens the model parameters window, allowing the user to define each parameter or leave the default values (Figure 6); the second icon redirects the user to the model documentation, providing detailed information about it (Figure 7).
 
 
 
+## Evaluation metrics selection window in training
+The next window (Figure 8) will allow the user to select the evaluation metrics for the models chosen in the previous step. The available metrics for this process include Accuracy, Kappa, Precision, F1 Score, Matthews Corrcoef, and Recall.      
+
+Additionally, next to each metric, there are two icons: the first displays the definition of the metric to assist the user in their choice (Figure 9). The second redirect to the official documentation provides detailed information about how it works (Figure 10).
 
 
+## Results of the Receipt Method Selection Window in Training
+After selecting the metrics, the user will need to click on the desired option to select the method for receiving the results (Figure 11). The available options are email delivery or local saving on the computer.
+
+
+
+If the user chooses email delivery, a text field will display to enter the email address (Figure 12). If the option is to save locally, the user will need to select the directory where the results will be stored (Figure 13). After filling in the required field, simply click "Next" to confirm and proceed to the next step.
+
+## Confirmation of Provided Information Window in Training
+Before starting the analysis execution, the user will be asked to confirm the information provided during all previous steps (Figure 14). If everything is correct, simply click the confirmation button to begin the process.
+
+
+## Project Execution Window in Training
+After confirming the project information, the execution window will be displayed, showing details of the steps already completed, as well as the percentage of completion of the training process for the selected models (Figure 15).
+
+
+Once the project execution process is complete, the user can view the full log of the process information. Additionally, the user can create a new project or view the results (Figure 16).
+
+
+## Training Analysis Results
+In the training analysis, the user will receive the trained models based on their selection, along with a graph showing the evaluation of the models' performance. In addition, a CSV file will be provided with the genes predicted for each model using the test dataset.
+
+## Prediction: How to perform a prediction?
+### Prediction Parameters Definition Window
+If it is the user's first access, a window will appear to create a new project. At this stage, the user will have to provide a unique name to identify the project, as well as upload a CSV file containing the tabular data together with a previously trained model in PKL format to carry out the classification of the genetic products.
+
+Note 2: GeneEssenceGUI provides a previously trained model that is available for use in the repository. This model is the result of grouping the eight models provided with the tool. If the user chooses to use this model, a feasibility test will be performed to verify whether the user’s hardware meets the minimum requirements to run it, which include at least 32 GB of RAM.
+
+### After adding the initial parameters for the analysis, proceed by clicking "Next."
+**Results of the Receipt Selection Window in Prediction**
+In the next window, the user must select the method for receiving the results. The software offers two options:
+- By Email (Figure 18), where the user provides the email address to which the results will be sent.
+- In Local Folder (Figure 19), the user selects a directory to save the results.
+
+### After choosing how to receive the results, advance to the next screen by clicking on "next".
+**Information Confirmation Window in Prediction**
+In the next step (Figure 20), all the provided information will be displayed for review. If everything is correct, simply click the Confirmation button to start the analysis.
+
+During execution, it is possible to track the progress of the processing, as shown in the figure below.
+
+
+
+At the end of the analysis (Figure 22), the results will be provided according to the option selected. In the same window, the user can view the results and start a new analysis if desired.
+
+
+## Prediction Analysis Results
+As a result of the prediction analysis, the user will receive a CSV file containing the predicted genes based on the model used.
 
 
 
