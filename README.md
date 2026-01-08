@@ -25,5 +25,14 @@
 3. Click "Install Now" and wait for the installation to complete.
 4. Verify the installation by opening the command Prompt and running: python --version
 
+### Linux Installation (Ubuntu/Debian-based)
+1. Update the package list: sudo apt update && sudo apt upgrade -y
+2. Install Python using apt: sudo apt install python3
+3. Verify the installation: python3 --version
+
+### macOS Installation
+1. Install Homebrew (if not already installed): /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+3. Install Python using Homebrew: brew install python
+4. Verify the installation: python3 --version
 
 
