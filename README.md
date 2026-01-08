@@ -130,7 +130,7 @@ If the user chooses email delivery, a text field will display to enter the email
 </p>
 
 ### 5.4. Confirmation of the Provided Information Window in Training
-Before starting the analysis execution, the user will be asked to confirm the information provided during all previous steps (Figure 14). If everything is correct, simply click the confirmation button to begin the process.
+Before starting the analysis execution, the user will be asked to confirm the information provided during all previous steps. If everything is correct, simply click the confirmation button to begin the process.
 
 <p align="center">
 <img src="screenshots/confirmation.png" alt="Logo" width="800" height="600" />
