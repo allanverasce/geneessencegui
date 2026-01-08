@@ -60,7 +60,7 @@ chmod 777 GeneEssenceGUI
 ## Dataset Model
 <p align="justify">For GeneEssenceGUI to function correctly, the dataset shown in Figure 1 must be in CSV (Comma-Separated Values) format. This format organizes data into rows and columns, each representing a data instance and containing a characteristic gene variable. To simplify data preparation, we provide a processing script that converts your files into the format the software accepts.</p>
 
-<img src="screenshots/figure3.jpeg" alt="Logo" width="300" height="300" />
+<img src="screenshots/figure3.jpeg" alt="Logo" width="600" height="500" />
 
 
 
