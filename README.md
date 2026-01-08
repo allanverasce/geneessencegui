@@ -122,11 +122,12 @@ Additionally, next to each metric, there are two icons: the first displays the d
 
 
 ## Results of the Receipt Method Selection Window in Training
-After selecting the metrics, the user will need to click on the desired option to select the method for receiving the results (Figure 11). The available options are email delivery or local saving on the computer.
+After selecting the metrics, the user will need to click on the desired option to select the method for receiving the results. The available options are email delivery or local saving on the computer.
+If the user chooses email delivery, a text field will display to enter the email address. If the option is to save locally, the user will need to select the directory where the results will be stored. After filling in the required field, simply click "Next" to confirm and proceed to the next step.
 
-
-
-If the user chooses email delivery, a text field will display to enter the email address (Figure 12). If the option is to save locally, the user will need to select the directory where the results will be stored (Figure 13). After filling in the required field, simply click "Next" to confirm and proceed to the next step.
+<p align="center">
+<img src="screenshots/locationresults.png" alt="Logo" width="800" height="600" />
+</p>
 
 ## Confirmation of Provided Information Window in Training
 Before starting the analysis execution, the user will be asked to confirm the information provided during all previous steps (Figure 14). If everything is correct, simply click the confirmation button to begin the process.
