@@ -5,9 +5,8 @@
 ### Technology 
 <image src="https://github.com/user-attachments/assets/3406d50a-a37b-4980-976f-61d0cf916957" alt="Image" width="50" />
 <image src="https://github.com/user-attachments/assets/5b44250e-ced9-46a6-84dd-a4954f408495" alt="Image" width="50" />
-<image src="https://github.com/allanverasce/allanverasce/assets/25986290/3f178481-786d-4e6f-b46f-7e10732e9ca8" alt="Image" width="50"/>
-
+<img width="50" alt="image" src="https://github.com/user-attachments/assets/cb2a064a-069d-4dee-be39-b5829287257e" />
 
 ### Compatible with
 <image src="https://github.com/user-attachments/assets/97a4af37-07f2-4283-ae7d-9a1db3e51d50" alt="Image" width="50"/>
-<img width="50" alt="image" src="https://github.com/user-attachments/assets/cb2a064a-069d-4dee-be39-b5829287257e" />
+<image src="https://github.com/allanverasce/allanverasce/assets/25986290/3f178481-786d-4e6f-b46f-7e10732e9ca8" alt="Image" width="50"/>
