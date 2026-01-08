@@ -10,3 +10,5 @@
 ### Compatible with
 <image src="https://github.com/user-attachments/assets/97a4af37-07f2-4283-ae7d-9a1db3e51d50" alt="Image" width="50"/>
 <image src="https://github.com/allanverasce/allanverasce/assets/25986290/3f178481-786d-4e6f-b46f-7e10732e9ca8" alt="Image" width="50"/>
+<img width="50" height="50" alt="image" src="https://github.com/user-attachments/assets/839d6c26-8c29-48a2-ac95-29be48d066bd" />
+
