@@ -121,23 +121,31 @@ Additionally, next to each metric, there are two icons: the first displays the d
 </p>
 
 
-## Results of the Receipt Method Selection Window in Training
-After selecting the metrics, the user will need to click on the desired option to select the method for receiving the results. The available options are email delivery or local saving on the computer.
-If the user chooses email delivery, a text field will display to enter the email address. If the option is to save locally, the user will need to select the directory where the results will be stored. After filling in the required field, simply click "Next" to confirm and proceed to the next step.
+### 5.3. Results of the Receipt Method Selection Window in Training
+<p align="justify">After selecting the metrics, the user will need to click on the desired option to select the method for receiving the results. The available options are email delivery or local saving on the computer.
+If the user chooses email delivery, a text field will display to enter the email address. If the option is to save locally, the user will need to select the directory where the results will be stored. After filling in the required field, simply click "Next" to confirm and proceed to the next step.</p>
 
 <p align="center">
 <img src="screenshots/locationresults.png" alt="Logo" width="800" height="600" />
 </p>
 
-## Confirmation of Provided Information Window in Training
+### 5.4. Confirmation of the Provided Information Window in Training
 Before starting the analysis execution, the user will be asked to confirm the information provided during all previous steps (Figure 14). If everything is correct, simply click the confirmation button to begin the process.
+
+<p align="center">
+<img src="screenshots/confirmation.png" alt="Logo" width="800" height="600" />
+</p>
+
+
 
 
 ## Project Execution Window in Training
 After confirming the project information, the execution window will be displayed, showing details of the steps already completed, as well as the percentage of completion of the training process for the selected models (Figure 15).
-
-
 Once the project execution process is complete, the user can view the full log of the process information. Additionally, the user can create a new project or view the results (Figure 16).
+
+<p align="center">
+<img src="screenshots/running.png" alt="Logo" width="800" height="600" />
+</p>
 
 
 ## Training Analysis Results
