@@ -84,6 +84,11 @@ The next window shows the user the types of analysis available in the tool, as s
 On your first access, you will be shown a window for creating a new training project (figure 4), in which you will have a field to provide the project's identification name and then select the tabular dataset file for training.
 Finally, the user will be able to define the proportion of the dataset to be used for testing the models during this stage, the percentage of this dataset being set directly in the interface.
 
+<p align="center">
+<img src="screenshots/train.png" alt="Logo" width="800" height="600" />
+</p>
+
+
 
 ## Model Selection Window
 The next window (Figure 5) allows the user to select the models to be trained. There are 8 types of models available, and the user can choose one or more of them.      
