@@ -40,7 +40,7 @@
 
 ### Linux and macOS
 - Grant execute permissions to the downloaded file:
-``
+``` 
 chmod 777 GeneEssenceGUI
 ```
 
