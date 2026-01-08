@@ -43,12 +43,15 @@
 ``
 chmod 777 GeneEssenceGUI
 ```
+
 - For Linux: Double-click the file or run it in the terminal:
+
 ```
 ./GeneEssenceGUI
 ```
 
 - For macOS: It is necessary to execute it through the terminal:
+
 ```
 ./GeneEssenceGUI
 ```
