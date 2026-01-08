@@ -163,9 +163,9 @@ The generation and formatting of the data set, required as input for training an
 
 
 
-## Institution & Laboratory
+## Lab
 
-<img src="screenshots/Brasao-UFPA-colorido.png" alt="Logo" width="100" height="200" />
+<img src="screenshots/EngBio1.png" alt="Logo" width="100" height="200" />
 
 
 
