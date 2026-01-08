@@ -97,8 +97,15 @@ The next window allows the user to select the models to be trained. There are 8 
 </p>
 
 
-Next to each model, there are two icons: the first opens the model parameters window, allowing the user to define each parameter or leave the default values (Figure 6); the second icon redirects the user to the model documentation, providing detailed information about it (Figure 7).
+Next to each model, there are two icons: the first opens the model parameters window, allowing the user to define each parameter or leave the default values; the second icon redirects the user to the model documentation, providing detailed information about it.
 
+<p align="center">
+<img src="screenshots/parameter.png" alt="Logo" width="800" height="600" />
+</p>
+
+<p align="center">
+<img src="screenshots/documentation.png" alt="Logo" width="800" height="600" />
+</p>
 
 
 ## Evaluation metrics selection window in training
