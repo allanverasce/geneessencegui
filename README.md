@@ -62,7 +62,10 @@ chmod 777 GeneEssenceGUI
 
 <img src="screenshots/figure3.jpeg" alt="Logo" width="600" height="500" />
 
+## Main Window
+<p align="justify">When you start running the software, the GeneEssenceGUI main window appears (Figure 2). The window contains a welcome message and a brief description of the tool's main features, along with information about the partners involved in the project. To start using the software, click the "Start" button.</p>
 
+<img src="screenshots/mainW.png" alt="Logo" width="600" height="500" />
 
 
 
