@@ -75,3 +75,25 @@ The next window shows the user the types of analysis available in the tool, as s
 - Training: During the training process, the machine learning model is trained using a data set. During this step, the model analyzes the data provided to identify patterns and learn how to make predictions based on them.
 - Prediction: Prediction is the phase in which a previously trained model is used to analyze new data. Based on the knowledge acquired during training, the model concludes, in this case, the classification of essential genes in unknown data.
 - Ensemble: Ensemble refers to an advanced technique in which multiple machine learning models are combined to improve the performance of the resulting model and thus the evaluation metrics. This approach reduces the risk of overfitting and makes the model more robust. By combining different analysis methods, a more reliable performance is ensured.
+
+<p align="center">
+<img src="screenshots/Figure9.jpeg" alt="Logo" width="800" height="600" />
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
