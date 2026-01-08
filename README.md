@@ -35,4 +35,22 @@
 3. Install Python using Homebrew: brew install python
 4. Verify the installation: python3 --version
 
+## Running the software
+<p>After downloading, follow the instructions according to your operating system: </p>
+
+### Linux and macOS
+- Grant execute permissions to the downloaded file:
+``
+chmod 777 GeneEssenceGUI
+```
+- For Linux: Double-click the file or run it in the terminal:
+```
+./GeneEssenceGUI
+```
+
+- For macOS: It is necessary to execute it through the terminal:
+```
+./GeneEssenceGUI
+```
+
 
