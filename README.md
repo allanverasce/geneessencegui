@@ -136,12 +136,9 @@ Before starting the analysis execution, the user will be asked to confirm the in
 <img src="screenshots/confirmation.png" alt="Logo" width="800" height="600" />
 </p>
 
-
-
-
-## Project Execution Window in Training
-After confirming the project information, the execution window will be displayed, showing details of the steps already completed, as well as the percentage of completion of the training process for the selected models (Figure 15).
-Once the project execution process is complete, the user can view the full log of the process information. Additionally, the user can create a new project or view the results (Figure 16).
+### 5.5. Project Execution Window in Training
+<p align="justify">After confirming the project information, the execution window will be displayed, showing details of the steps already completed, as well as the percentage of completion of the training process for the selected models.
+Once the project execution process is complete, the user can view the full log of the process information. Additionally, the user can create a new project or view the results.</p>
 
 <p align="center">
 <img src="screenshots/running.png" alt="Logo" width="800" height="600" />
