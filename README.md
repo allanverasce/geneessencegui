@@ -107,11 +107,18 @@ Next to each model, there are two icons: the first opens the model parameters wi
 <img src="screenshots/documentation.png" alt="Logo" width="800" height="600" />
 </p>
 
+### 5.2. Evaluation metrics selection window in training
+The next window will allow the user to select the evaluation metrics for the models chosen in the previous step. The available metrics for this process include Accuracy, Kappa, Precision, F1 Score, Matthews Corrcoef, and Recall.      
 
-## Evaluation metrics selection window in training
-The next window (Figure 8) will allow the user to select the evaluation metrics for the models chosen in the previous step. The available metrics for this process include Accuracy, Kappa, Precision, F1 Score, Matthews Corrcoef, and Recall.      
+<p align="center">
+<img src="screenshots/metrics.png" alt="Logo" width="800" height="600" />
+</p>
 
-Additionally, next to each metric, there are two icons: the first displays the definition of the metric to assist the user in their choice (Figure 9). The second redirect to the official documentation provides detailed information about how it works (Figure 10).
+Additionally, next to each metric, there are two icons: the first displays the definition of the metric to assist the user in their choice (Figure 9). The second redirect to the official documentation provides detailed information about how it works.
+
+<p align="center">
+<img src="screenshots/metricsdocumentation.png" alt="Logo" width="800" height="600" />
+</p>
 
 
 ## Results of the Receipt Method Selection Window in Training
