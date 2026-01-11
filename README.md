@@ -182,12 +182,15 @@ At the end of the analysis (Figure 22), the results will be provided according t
 ## Prediction Analysis Results
 As a result of the prediction analysis, the user will receive a CSV file containing the predicted genes based on the model used.
 
-## Load information from existing projects
+## 7. Load information from existing projects
 If the user wants to analyze a project that has already been carried out, the tool offers the option of loading the information from a previous project, as long as it can be found in the database. Figure 32 illustrates the initial screen of the parameter definition stage for one of the analyses, where the data from the selected project is loaded automatically, allowing the user to continue working efficiently and without the need to restart the process.
 
+<p align="center">
+<img src="screenshots/Load_1.jpeg" alt="Logo" width="800" height="600" />
+</p>
 
 
-## How to prepare your dataset
+## 8. How to prepare your dataset
 The generation and formatting of the data set, required as input for training and predicting the model, is carried out using the prepareDataset2RNA.jar module, the main parameters of which are listed in the image below.
 
 1. To prepare the dataset for the essential gene prediction step, it is necessary to use the module with the “-p” parameter, see the execution example below:
