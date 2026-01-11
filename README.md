@@ -193,19 +193,21 @@ If the user wants to analyze a project that has already been carried out, the to
 ## 8. How to prepare your dataset
 The generation and formatting of the data set, required as input for training and predicting the model, is carried out using the prepareDataset2RNA.jar module, the main parameters of which are listed in the image below.
 
-1. To prepare the dataset for the essential gene prediction step, it is necessary to use the module with the “-p” parameter, see the execution example below:
-
 <p align="center">
 <img src="screenshots/prep1.jpeg" alt="Logo" width="800" height="600" />
 </p>
 
-   
-2. To prepare the dataset that will be used to generate the models, it is necessary to provide the annotation files in CSV format and the amino acid sequences in FASTA format, both obtained from DEG, as well as the path to the organism files in GenBank format. See the example run below:
+1. To prepare the dataset for the essential gene prediction step, it is necessary to use the module with the “-p” parameter, see the execution example below:
 
 <p align="center">
 <img src="screenshots/prep2.jpeg" alt="Logo" width="800" height="600" />
 </p>
+   
+2. To prepare the dataset that will be used to generate the models, it is necessary to provide the annotation files in CSV format and the amino acid sequences in FASTA format, both obtained from DEG, as well as the path to the organism files in GenBank format. See the example run below:
 
+<p align="center">
+<img src="screenshots/prep3.jpeg" alt="Logo" width="800" height="600" />
+</p>
 
 
 ## Lab
