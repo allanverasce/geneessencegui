@@ -180,7 +180,7 @@ At the end of the analysis, the results will be provided according to the option
 <img src="screenshots/confirmation.png" alt="Logo" width="800" height="600" />
 </p>
 
-## Prediction Analysis Results
+## 6.4. Prediction Analysis Results
 As a result of the prediction analysis, the user will receive a CSV file containing the predicted genes based on the model used.
 
 ## 7. Load information from existing projects
