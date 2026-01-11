@@ -162,8 +162,8 @@ Note 2: GeneEssenceGUI provides a previously trained model that is available for
 ### 6.2. After adding the initial parameters for the analysis, proceed by clicking "Next."
 **Results of the Receipt Selection Window in Prediction**
 In the next window, the user must select the method for receiving the results. The software offers two options:
-- By Email (Figure 18), where the user provides the email address to which the results will be sent.
-- In Local Folder (Figure 19), the user selects a directory to save the results.
+- By Email, where the user provides the email address to which the results will be sent.
+- In Local Folder, the user selects a directory to save the results.
 
 <p align="center">
 <img src="screenshots/predict_2.jpeg" alt="Logo" width="800" height="600" />
@@ -184,7 +184,7 @@ At the end of the analysis, the results will be provided according to the option
 As a result of the prediction analysis, the user will receive a CSV file containing the predicted genes based on the model used.
 
 ## 7. Load information from existing projects
-If the user wants to analyze a project that has already been carried out, the tool offers the option of loading the information from a previous project, as long as it can be found in the database. Figure 32 illustrates the initial screen of the parameter definition stage for one of the analyses, where the data from the selected project is loaded automatically, allowing the user to continue working efficiently and without the need to restart the process.
+If the user wants to analyze a project that has already been carried out, the tool offers the option of loading the information from a previous project, as long as it can be found in the database. The figure below illustrates the initial screen of the parameter definition stage for one of the analyses, where the data from the selected project is loaded automatically, allowing the user to continue working efficiently and without the need to restart the process.
 
 <p align="center">
 <img src="screenshots/Load_1.jpeg" alt="Logo" width="800" height="600" />
