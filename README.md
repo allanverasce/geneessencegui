@@ -148,7 +148,7 @@ Once the project execution process is complete, the user can view the full log o
 ## 5.6. Training Analysis Results
 In the training analysis, the user will receive the trained models based on their selection, along with a graph showing the evaluation of the models' performance. In addition, a CSV file will be provided with the genes predicted for each model using the test dataset.
 
-## Prediction: How to perform a prediction?
+## 6. Prediction: How to perform a prediction?
 ### Prediction Parameters Definition Window
 If it is the user's first access, a window will appear to create a new project. At this stage, the user will have to provide a unique name to identify the project, as well as upload a CSV file containing the tabular data together with a previously trained model in PKL format to carry out the classification of the genetic products.
 
@@ -158,7 +158,7 @@ If it is the user's first access, a window will appear to create a new project. 
 
 Note 2: GeneEssenceGUI provides a previously trained model that is available for use in the repository. This model is the result of grouping the eight models provided with the tool. If the user chooses to use this model, a feasibility test will be performed to verify whether the user’s hardware meets the minimum requirements to run it, which include at least 32 GB of RAM.
 
-### 5.7. After adding the initial parameters for the analysis, proceed by clicking "Next."
+### 6.1. After adding the initial parameters for the analysis, proceed by clicking "Next."
 **Results of the Receipt Selection Window in Prediction**
 In the next window, the user must select the method for receiving the results. The software offers two options:
 - By Email (Figure 18), where the user provides the email address to which the results will be sent.
@@ -169,7 +169,7 @@ In the next window, the user must select the method for receiving the results. T
 </p>
 
 
-### After choosing how to receive the results, advance to the next screen by clicking on "next".
+### 6.2. After choosing how to receive the results, advance to the next screen by clicking on "next".
 **Information Confirmation Window in Prediction**
 In the next step (Figure 20), all the provided information will be displayed for review. If everything is correct, simply click the Confirmation button to start the analysis.
 
