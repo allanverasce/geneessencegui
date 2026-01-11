@@ -5,6 +5,7 @@
 # <p align="center">GeneEssenceGUI: A user-friendly Python-based GUI for essential gene classification using machine learning</p>
 
 <p align="justify"> DNA sequencing technologies have led to significant advances in knowledge about genetic content, from microorganisms to humans. One important analysis is annotation, i.e., the inference of biological information from genome sequences, which enables researchers to understand the function of genetic products, such as genes, the basic units of heredity responsible for physical and heritable traits. Some genes perform vital functions, encoding proteins or RNAs that are essential for processes such as cell metabolism and are involved in crucial pathways, including glycolysis and the tricarboxylic acid cycle. Sequencing platforms now produce large data volumes, driving advances in omics and the development of computational methods to support analysis. More recently, artificial intelligence and machine learning have been applied to this data, with studies showing the effectiveness of biology-inspired approaches. These models do not require rule-based programming, though their creation still demands advanced programming and computer skills. This study presents GeneEssenceGUI, a user-friendly Python-based GUI for essential gene classification using machine learning, implementing nine models to classify essential genes. The platform supports seamless data ingestion, model orchestration, and hyperparameter optimization through a unified graphical environment. GeneEssenceGUI implements a persistent SQLite-based storage system that logs all experimental metadata, ensuring full computational reproducibility and audit trails for genomic studies.</p>
+Avaliable : https://github.com/allanverasce/geneessencegui/releases/tag/v1.0.0
 
 ### Technology 
 <image src="https://github.com/user-attachments/assets/3406d50a-a37b-4980-976f-61d0cf916957" alt="Image" width="50" />
@@ -171,9 +172,9 @@ In the next window, the user must select the method for receiving the results. T
 
 ### 6.3. After choosing how to receive the results, advance to the next screen by clicking on "next".
 **Information Confirmation Window in Prediction**
-In the next step (Figure 20), all the provided information will be displayed for review. If everything is correct, simply click the Confirmation button to start the analysis.
+In the next step, all the provided information will be displayed for review. If everything is correct, simply click the Confirmation button to start the analysis.
 During execution, it is possible to track the progress of the processing, as shown in the figure below.
-At the end of the analysis (Figure 22), the results will be provided according to the option selected. In the same window, the user can view the results and start a new analysis if desired.
+At the end of the analysis, the results will be provided according to the option selected. In the same window, the user can view the results and start a new analysis if desired.
 
 <p align="center">
 <img src="screenshots/confirmation.png" alt="Logo" width="800" height="600" />
