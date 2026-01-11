@@ -152,6 +152,10 @@ In the training analysis, the user will receive the trained models based on thei
 ### Prediction Parameters Definition Window
 If it is the user's first access, a window will appear to create a new project. At this stage, the user will have to provide a unique name to identify the project, as well as upload a CSV file containing the tabular data together with a previously trained model in PKL format to carry out the classification of the genetic products.
 
+<p align="center">
+<img src="screenshots/predict_1.jpeg" alt="Logo" width="800" height="600" />
+</p>
+
 Note 2: GeneEssenceGUI provides a previously trained model that is available for use in the repository. This model is the result of grouping the eight models provided with the tool. If the user chooses to use this model, a feasibility test will be performed to verify whether the user’s hardware meets the minimum requirements to run it, which include at least 32 GB of RAM.
 
 ### After adding the initial parameters for the analysis, proceed by clicking "Next."
