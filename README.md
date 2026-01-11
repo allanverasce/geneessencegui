@@ -145,7 +145,7 @@ Once the project execution process is complete, the user can view the full log o
 </p>
 
 
-## Training Analysis Results
+## 5.6. Training Analysis Results
 In the training analysis, the user will receive the trained models based on their selection, along with a graph showing the evaluation of the models' performance. In addition, a CSV file will be provided with the genes predicted for each model using the test dataset.
 
 ## Prediction: How to perform a prediction?
@@ -158,11 +158,16 @@ If it is the user's first access, a window will appear to create a new project. 
 
 Note 2: GeneEssenceGUI provides a previously trained model that is available for use in the repository. This model is the result of grouping the eight models provided with the tool. If the user chooses to use this model, a feasibility test will be performed to verify whether the user’s hardware meets the minimum requirements to run it, which include at least 32 GB of RAM.
 
-### After adding the initial parameters for the analysis, proceed by clicking "Next."
+### 5.7. After adding the initial parameters for the analysis, proceed by clicking "Next."
 **Results of the Receipt Selection Window in Prediction**
 In the next window, the user must select the method for receiving the results. The software offers two options:
 - By Email (Figure 18), where the user provides the email address to which the results will be sent.
 - In Local Folder (Figure 19), the user selects a directory to save the results.
+
+<p align="center">
+<img src="screenshots/predict_2.jpeg" alt="Logo" width="800" height="600" />
+</p>
+
 
 ### After choosing how to receive the results, advance to the next screen by clicking on "next".
 **Information Confirmation Window in Prediction**
