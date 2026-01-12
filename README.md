@@ -61,6 +61,7 @@ chmod 777 GeneEssenceGUI
 
 ## 3. Dataset Model
 <p align="justify">For GeneEssenceGUI to function correctly, the dataset must be in CSV (Comma-Separated Values) format. This format organizes data into rows and columns, each representing a data instance and containing a characteristic gene variable. To simplify data preparation, we provide a processing script that converts your files into the format the software accepts.</p>
+
 <p align="center">
 <img src="screenshots/figure3.jpeg" alt="Logo" width="600" height="500" />
 </p>
@@ -131,7 +132,7 @@ If the user chooses email delivery, a text field will display to enter the email
 </p>
 
 ### 5.4. Confirmation of the Provided Information Window in Training
-Before starting the analysis execution, the user will be asked to confirm the information provided during all previous steps. If everything is correct, simply click the confirmation button to begin the process.
+Before executing the analysis, the user will be asked to confirm the information provided during all previous steps. If everything is correct, simply click the confirmation button to begin the process.
 
 <p align="center">
 <img src="screenshots/confirmation.png" alt="Logo" width="800" height="600" />
@@ -157,7 +158,7 @@ If it is the user's first access, a window will appear to create a new project. 
 <img src="screenshots/predict_1.jpeg" alt="Logo" width="800" height="600" />
 </p>
 
-Note 2: GeneEssenceGUI provides a previously trained model that is available for use in the repository. This model is the result of grouping the eight models provided with the tool. If the user chooses to use this model, a feasibility test will be performed to verify whether the user’s hardware meets the minimum requirements to run it, which include at least 32 GB of RAM.
+**Note 2**: GeneEssenceGUI provides a previously trained model that is available for use in the repository. This model is the result of grouping the eight models provided with the tool. If the user chooses to use this model, a feasibility test will be performed to verify whether the user’s hardware meets the minimum requirements to run it, which include at least 32 GB of RAM.
 
 After adding the initial parameters for the analysis, proceed by clicking "Next."
 
@@ -169,7 +170,6 @@ In the next window, the user must select the method for receiving the results. T
 <p align="center">
 <img src="screenshots/predict_2.jpeg" alt="Logo" width="800" height="600" />
 </p>
-
 
 After choosing how to receive the results, advance to the next screen by clicking on "next".
 
