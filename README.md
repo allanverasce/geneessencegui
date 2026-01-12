@@ -171,8 +171,9 @@ In the next window, the user must select the method for receiving the results. T
 </p>
 
 
-### 6.3. After choosing how to receive the results, advance to the next screen by clicking on "next".
-**Information Confirmation Window in Prediction**
+After choosing how to receive the results, advance to the next screen by clicking on "next".
+
+### 6.3. Information Confirmation Window in Prediction
 In the next step, all the provided information will be displayed for review. If everything is correct, simply click the Confirmation button to start the analysis.
 During execution, it is possible to track the progress of the processing, as shown in the figure below.
 At the end of the analysis, the results will be provided according to the option selected. In the same window, the user can view the results and start a new analysis if desired.
