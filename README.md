@@ -162,7 +162,7 @@ If it is the user's first access, a window will appear to create a new project. 
 
 After adding the initial parameters for the analysis, proceed by clicking "Next."
 
-### 6.2. Results of the Receipt Selection Window in Prediction**
+### 6.2. Results of the Receipt Selection Window in Prediction
 In the next window, the user must select the method for receiving the results. The software offers two options:
 - By Email, where the user provides the email address to which the results will be sent.
 - In Local Folder, the user selects a directory to save the results.
