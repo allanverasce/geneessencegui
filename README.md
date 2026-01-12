@@ -159,8 +159,9 @@ If it is the user's first access, a window will appear to create a new project. 
 
 Note 2: GeneEssenceGUI provides a previously trained model that is available for use in the repository. This model is the result of grouping the eight models provided with the tool. If the user chooses to use this model, a feasibility test will be performed to verify whether the user’s hardware meets the minimum requirements to run it, which include at least 32 GB of RAM.
 
-### 6.2. After adding the initial parameters for the analysis, proceed by clicking "Next."
-**Results of the Receipt Selection Window in Prediction**
+After adding the initial parameters for the analysis, proceed by clicking "Next."
+
+### 6.2. Results of the Receipt Selection Window in Prediction**
 In the next window, the user must select the method for receiving the results. The software offers two options:
 - By Email, where the user provides the email address to which the results will be sent.
 - In Local Folder, the user selects a directory to save the results.
