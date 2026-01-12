@@ -18,7 +18,7 @@ Available: https://github.com/allanverasce/geneessencegui/releases/tag/v1.0.0
 <img width="50" height="50" alt="image" src="https://github.com/user-attachments/assets/839d6c26-8c29-48a2-ac95-29be48d066bd" />
 
 # 1. Installation and User Guide 
-<p align="justify">To run GeneEssenceGUI, you must install Python 3.12 or higher on your system. The installer can be obtained from the official website: [Download Python.](https://www.python.org/)</p>
+<p align="justify">To run GeneEssenceGUI, you must install Python 3.12 or higher on your system. The installer can be obtained from the official website: https://www.python.org </p>
 
 ## 1.2. Installation of dependencies
 ### Windows Installation
