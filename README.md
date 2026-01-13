@@ -22,7 +22,7 @@ Available: https://github.com/allanverasce/geneessencegui/releases/tag/v1.0.0
 
 ## 1.2. Installation of dependencies
 ### Windows Installation
-1. Download the Python installer (python-12.x.x.exe) from the official website.
+1. Download the Python installer (python-12.x.x.exe) from the official website (https://www.python.org). 
 2. Run the installer and check "Add Python to PATH" before proceeding.
 3. Click "Install Now" and wait for the installation to complete.
 4. Verify the installation by opening the command Prompt and running: python --version
