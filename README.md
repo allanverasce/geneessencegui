@@ -212,6 +212,11 @@ The generation and formatting of the data set, required as input for training an
 <img src="screenshots/prep3.jpeg" alt="Logo" width="800" height="600" />
 </p>
 
+## 👥 Contributors
+
+- [@biowalte](https://github.com/biowalte)
+
+
 
 ## Lab
 
