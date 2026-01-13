@@ -214,7 +214,9 @@ The generation and formatting of the data set, required as input for training an
 
 ## 👥 Contributors
 
-- [@biowalte](https://github.com/biowalte)
+<a href="https://github.com/adonney/GeneEssenceGUI/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=adonney/GeneEssenceGUI" />
+</a>
 
 
 
