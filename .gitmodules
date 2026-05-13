@@ -1,0 +1,3 @@
+[submodule "GeneEssencelGUI"]
+	path = GeneEssencelGUI
+	url = git@github.com:Gislenne/GeneEssencelGUI.git
