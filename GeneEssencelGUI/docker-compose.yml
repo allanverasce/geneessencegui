@@ -1,0 +1,19 @@
+services:
+  geneessence:
+    build: .
+    # Linux: compartilha o socket X11 do host
+    # Para macOS/Windows: defina DISPLAY=host.docker.internal:0 no .env
+    #   e tenha XQuartz (macOS) ou VcXsrv (Windows) rodando
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - gene_essence_db:/app/gene_essence_interface/utils
+    network_mode: host
+    shm_size: '256mb'
+    env_file:
+      - path: .env
+        required: false
+
+volumes:
+  gene_essence_db:
