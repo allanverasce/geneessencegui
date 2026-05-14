@@ -336,3 +336,9 @@ Generates the input file for the Prediction analysis. Requires one input:
 <p align="center">
 <img src="screenshots/Dataset Preparation Running.png" alt="Dataset Preparation Running" width="800" height="600" />
 </p>
+
+
+
+## License
+
+AGPL-3.0 license — see [LICENSE](LICENSE) for details.
