@@ -40,7 +40,7 @@ GeneEssenceGUI allows researchers to classify essential genes using machine lear
 
 # 1. Installation
 
-Two installation methods are available: downloading the pre-built executable or running via Docker.
+Three installation methods are available: downloading the pre-built executable, running via Docker, or running from source.
 
 ## 1.1. Download the executable (recommended)
 
@@ -87,7 +87,19 @@ docker run --rm -e DISPLAY=host.docker.internal:0 <dockerhub-user>/geneessencegu
 Requires Python 3.12+ and Java (for the Prepare Dataset feature).
 
 ```bash
-cd GeneEssencelGUI
+git clone https://github.com/allanverasce/geneessencegui.git
+cd geneessencegui/GeneEssencelGUI
+python -m venv .venv
+```
+
+Activate the virtual environment:
+
+- **Windows:** `.venv\Scripts\activate`
+- **Linux/macOS:** `source .venv/bin/activate`
+
+Then install dependencies and run:
+
+```bash
 pip install -r requirements.txt
 python GeneEssenceGUI.py
 ```
