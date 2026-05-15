@@ -109,7 +109,7 @@ python GeneEssenceGUI.py
 <img src="screenshots/3. Main Window.png" alt="Main Window" width="800" />
 </p>
 
-**Note**: If your dataset is suitable, you can proceed directly to the [5. Analysis Type Selection](#5-analysis-type-selection)
+**Note**: If your dataset is suitable, you can proceed directly to the [Analysis Type Selection](#5-analysis-type-selection)
 
 ---
 
