@@ -133,7 +133,7 @@ The `datasets/` folder contains ready-to-use files for each analysis mode:
 | `validation_to_prediction.csv` | 893 | Prediction (labeled) |
 | `validation.csv` | 893 | Prediction (unlabeled) |
 
-All files share the same structure: **20 amino acid count features** (M, F, L, I, V, S, P, T, A, Y, H, Q, N, K, D, E, C, W, R, G) representing the residue composition of each gene product. In training and ensemble files the last column (`Product Name`) holds the gene product name sourced from the DEG database and serves as the classification label. Prediction files (`validation.csv`) omit this column since labels are unknown at inference time.
+<p align="justify">All files share the same structure: **20 amino acid count features** (M, F, L, I, V, S, P, T, A, Y, H, Q, N, K, D, E, C, W, R, G) representing the residue composition of each gene product. In training and ensemble files the last column (`Product Name`) holds the gene product name sourced from the DEG database and serves as the classification label. Prediction files (`validation.csv`) omit this column since labels are unknown at inference time.</p>
 
 ### `datasets/prepareDatasets/`
 
@@ -149,7 +149,7 @@ This sub-folder contains the raw genomic input files needed to reproduce the sam
 
 # 4. Prepare Dataset
 
-<p style="text-align: justify;">The dataset preparation module is accessible directly from the main window via the <strong>PREPARE DATASET</strong> button. It uses the bundled <code>prepareDataset2RNA.jar</code> module to convert raw genomic files into the CSV format accepted by GeneEssenceGUI. Java must be installed and available in the system PATH.</p>
+<p align="justify">The dataset preparation module is accessible directly from the main window via the <strong>PREPARE DATASET</strong> button. It uses the bundled <code>prepareDataset2RNA.jar</code> module to convert raw genomic files into the CSV format accepted by GeneEssenceGUI. Java must be installed and available in the system PATH.</p>
 
 Two preparation modes are available, each shown as a selectable card:
 
