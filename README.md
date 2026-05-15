@@ -29,6 +29,9 @@ GeneEssenceGUI allows researchers to classify essential genes using machine lear
 - [3. Dataset Format](#3-dataset-format)
 - [4. Prepare Dataset](#4-prepare-dataset)
 - [5. Analysis Type Selection](#5-analysis-type-selection)
+  - [5.1. Training](#51-training)
+  - [5.2. Prediction](#52-prediction)
+  - [5.3. Ensemble](#53-ensemble)
 - [6. Loading Existing Projects](#6-loading-existing-projects)
 
 ---
@@ -214,26 +217,159 @@ Generates the input file for the Prediction analysis. Requires one input:
 
 ---
 
+# 5.1. Training
+
+## 5.1.1. Project Information
+
+<p style="text-align: justify;">After selecting <strong>Training</strong>, the Project Information screen is shown. The project name must be between 5 and 10 characters. The user selects the CSV dataset file and sets the proportion of data reserved for testing (test size), from 10% to 90%.</p>
+
+<p style="text-align: justify;">If previous Training projects exist in the database, a toggle (<strong>Create new / Load existing</strong>) appears at the top. Selecting <em>Load existing</em> shows a list of saved projects whose settings are loaded automatically.</p>
+
+<p style="text-align: center;">
+<img src="screenshots/5.1. Project Information.png" alt="Project Information" width="800" />
+</p>
+
+## 5.1.2. Model Selection
+
+<p style="text-align: justify;">The model selection screen displays the available classifiers in a two-column grid. At least one model must be selected to proceed. A <strong>Select All</strong> checkbox is available at the bottom of the screen.</p>
+
+Each model card provides two action buttons:
+- **⚙** (settings) — opens the parameter configuration modal for that model. This button is only enabled after the model is selected.
+- **🔗** (link) — opens the official scikit-learn documentation for that model in the browser.
+
+<p style="text-align: center;">
+<img src="screenshots/5.2. Model Selection.png" alt="Model Selection" width="800" />
+</p>
+
+### Model Parameters
+
+<p style="text-align: justify;">Clicking ⚙ on a selected model opens a modal window listing all configurable hyperparameters for that model. Parameters can be modified or left at their default values.</p>
+
+<p style="text-align: center;">
+<img src="screenshots/Model Parameters.png" alt="Model Parameters" width="800" />
+</p>
+
+## 5.1.3. Metric Selection
+
+<p style="text-align: justify;">The metric selection screen lists the available evaluation metrics in a two-column grid. At least one metric must be selected. A <strong>Select All</strong> checkbox is available. The <strong>🔗</strong> button next to each metric opens its official documentation.</p>
+
+<p style="text-align: center;">
+<img src="screenshots/5.3. Metric Selection.png" alt="Metric Selection" width="800" />
+</p>
+
+## 5.1.4. Result Delivery
+
+<p style="text-align: justify;">The delivery screen offers two options, each presented as a selectable card that expands to show its input:</p>
+
+- **Receive by Email** — the results are compressed into a ZIP file and sent to the provided email address. A valid email format is required before proceeding.
+- **Save Locally** — the user browses for a folder on their computer where the results will be saved.
+
+<p style="text-align: center;">
+<img src="screenshots/5.4. Result Delivery.png" alt="Result Delivery" width="800" />
+</p>
+
+## 5.1.5. Confirmation
+
+<p style="text-align: justify;">Before execution, all configured parameters are displayed in a summary card for review: analysis type, project name, CSV file path, test size, selected models, selected metrics, and delivery method. Clicking <strong>CONFIRM AND RUN</strong> saves the project to the database and starts the analysis.</p>
+
+<p style="text-align: center;">
+<img src="screenshots/5.5. Confirmation.png" alt="Confirmation" width="800" />
+</p>
+
+## 5.1.6. Execution
+
+<p style="text-align: justify;">The execution screen shows the analysis running in real time. It contains four areas:</p>
+
+- **Info bar** (top) — displays project name, analysis type, number of models, number of metrics, and elapsed time.
+- **Log terminal** (left) — a color-coded log with timestamps. Messages are tagged as `[INFO]`, `[ OK ]`, `[ERR]`, or `[WARN]`.
+- **Progress ring** (right) — a circular progress indicator showing the current completion percentage.
+- **Pipeline tracker** (right) — lists the execution steps (Load CSV → Normalize → Split Data → Train Models → Evaluate → Save Results → Deliver), highlighting the active step and marking completed ones with a checkmark.
+
+<p style="text-align: center;">
+<img src="screenshots/running.png" alt="Running Analysis" width="800" />
+</p>
+
+<p style="text-align: justify;">When the analysis completes, a green success banner appears at the top with the total elapsed time. If the results were saved locally, the output path is shown along with an <strong>Open Folder</strong> button. A <strong>+ New Analysis</strong> button allows the user to start a new session.</p>
+
+<p style="text-align: center;">
+<img src="screenshots/running_done.png" alt="Analysis Complete" width="800" />
+</p>
+
+## 5.1.7. Training Results
+
+<p style="text-align: justify;">The training analysis produces the following output files, organized into subfolders inside the project directory:</p>
+
+- **Models/** — one `.pkl` file per trained model, ready for use in Prediction or Ensemble analyses.
+- **Prediction/** — a CSV file with the gene classifications produced by each model on the test set.
+- **Graphs/** — performance charts comparing the evaluation metrics across all trained models.
+
+---
+
+# 5.2. Prediction
+
+> The ensemble learning model used for tool validation is available for download at the [v1.0.0 release page](https://github.com/allanverasce/geneessencegui/releases/tag/v1.0.0).
+
+## 5.2.1. Project Information
+
+<p style="text-align: justify;">After selecting <strong>Prediction</strong>, the Project Information screen requests a project name (5–10 characters), the CSV file with the data to be classified, and a previously trained model file in <code>.pkl</code> format.</p>
+
+<p style="text-align: justify;">If the selected model file is large, a feasibility check is performed automatically to verify that the system has sufficient RAM to load it.</p>
+
+<p style="text-align: center;">
+<img src="screenshots/6.1. Project Information.png" alt="Project Information - Prediction" width="800" />
+</p>
+
+## 5.2.2. Result Delivery, Confirmation, and Execution
+
+<p style="text-align: justify;">The Delivery, Confirmation, and Execution screens follow the same structure as described in sections 5.1.4, 5.1.5, and 5.1.6. The pipeline tracker for Prediction shows the steps: Load CSV → Normalize → Predict → Save Results → Deliver.</p>
+
+<p style="text-align: center;">
+<img src="screenshots/6.2. Result Delivery, Confirmation, and Execution.png" alt="Result Delivery, Confirmation, and Execution" width="800" />
+</p>
+
+## 5.2.3. Prediction Results
+
+The prediction analysis produces a CSV file containing the classification (essential / non-essential) for each gene in the input dataset.
+
+---
+
+# 5.3. Ensemble
+
+## 5.3.1. Project Information
+
+<p style="text-align: justify;">After selecting <strong>Ensemble</strong>, the Project Information screen requests a project name (5–10 characters), the CSV dataset for evaluation, a <strong>directory containing previously trained <code>.pkl</code> model files</strong>, and the test size proportion. The models in that directory are combined using a hard-voting strategy via scikit-learn's <code>VotingClassifier</code>.</p>
+
+<p style="text-align: center;">
+<img src="screenshots/7.1. Project Information.png" alt="Project Information - Ensemble" width="800" />
+</p>
+
+## 5.3.2. Metric Selection
+
+<p style="text-align: justify;">The Ensemble wizard includes a metric selection step (same as Training, section 5.1.3) but skips individual model selection, since the models are loaded directly from the specified directory.</p>
+
+## 5.3.3. Result Delivery, Confirmation, and Execution
+
+<p style="text-align: justify;">The Delivery, Confirmation, and Execution screens follow the same structure as described in sections 5.1.4, 5.1.5, and 5.1.6. The pipeline tracker for Ensemble shows: Load CSV → Normalize → Split Data → Aggregate Models → Evaluate → Save Results → Deliver.</p>
+
+<p style="text-align: center;">
+<img src="screenshots/7.3. Result Delivery, Confirmation, and Execution.png" alt="Result Delivery, Confirmation, and Execution" width="800" />
+</p>
+
+## 5.3.4. Ensemble Results
+
+The ensemble analysis produces:
+
+- **Prediction/** — a CSV file with the hard-voting classification for each gene.
+- **Graphs/** — performance charts for the ensemble evaluated against the selected metrics.
+
+---
+
 # 6. Loading Existing Projects
 
 <p style="text-align: justify;">If projects of the same analysis type have been previously saved, the Project Information screen displays a segmented toggle at the top with two options: <strong>Create new</strong> and <strong>Load existing</strong>. Switching to <em>Load existing</em> shows a dropdown list of all saved projects for that type. Selecting a project loads all its previously configured parameters automatically, allowing the analysis to be re-run without re-entering information.</p>
 
 <p style="text-align: center;">
-<img src="screenshots/8. Loading Existing Projects.png" alt="9. Loading Existing Projects" width="800" />
-</p>
-
-# 7. Real-Time Task Monitoring
-
-When you select any option, whether to perform training, run predictions, or load a previously created project, you will be automatically directed to the Running Analysis window.
-In this window, you can monitor all ongoing tasks in real time. The progress of each step is displayed in two ways:
-
-- Log Area Displays a detailed record of each step being executed, allowing you to track the status of all operations.
-- Progress Bar Provides a visual indicator of the percentage of completed tasks, making it easy to estimate how much work remains.
-  
-*Note:* This feature ensures transparency and control over your workflow, keeping you informed about the status of all operations in progress.
-
-<p style="text-align: center;">
-<img src="screenshots/running.png" alt="10. Running" width="800" />
+<img src="screenshots/8. Loading Existing Projects.png" alt="Loading Existing Projects" width="800" />
 </p>
 
 
