@@ -7,6 +7,7 @@ from gene_essence_interface.config.colors import COLORS
 from gene_essence_interface.database.queries.check_project_exists import check_project_exists
 from gene_essence_interface.pages.components.CustomButton import CustomButton
 from gene_essence_interface.pages.components.RoundedCard import RoundedCard
+from gene_essence_interface.utils.get_initial_dir import get_initial_dir
 
 _LABEL_FG = COLORS['subtitle']
 _SEP_COLOR = '#F1F5F9'
@@ -199,7 +200,7 @@ class InformationProjectFrame(RoundedCard):
         self.update_callback()
 
     def _select_directory(self):
-        path = filedialog.askdirectory(title='Select models directory')
+        path = filedialog.askdirectory(title='Select models directory', initialdir=get_initial_dir())
         if path:
             if [f for f in os.listdir(path) if f.endswith('.pkl')]:
                 self._dir_label.config(text=f'✓ {os.path.basename(path)}', fg=COLORS['success'])

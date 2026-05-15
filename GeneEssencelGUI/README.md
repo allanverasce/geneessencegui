@@ -44,8 +44,31 @@ pip install -r requirements.txt
 
 ## Running the Application
 
+### Locally
+
 ```bash
 python GeneEssenceGUI.py
+```
+
+### With Docker
+
+**macOS (XQuartz required for GUI):**
+
+```bash
+docker run --rm \
+  -e DISPLAY=host.docker.internal:0 \
+  -e HOST_HOME=$HOME \
+  -v /Users:/Users \
+  -v /path/to/your/Dataset:/data \
+  geneessencegui:v1.0.0
+```
+
+> Replace `/path/to/your/Dataset` with the absolute path to your dataset directory (e.g. `$HOME/Downloads/Dataset`).
+
+**Build the image first (if not already built):**
+
+```bash
+docker build -t geneessencegui:v1.0.0 .
 ```
 
 ## Project Structure

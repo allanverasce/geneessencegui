@@ -39,16 +39,18 @@ Two installation methods are available: running via Docker or running from sourc
 
 ## 1.1. Docker
 
-The `-v` flag mounts a folder from your machine into the container so that file dialogs inside the application can access your local files. Replace `/path/to/your/data` with the folder that contains your datasets and GenBank files. Inside the application, navigate to `/data` whenever a file or folder selection dialog appears.
+The container receives your home directory via `-e HOST_HOME` and mounts it with `-v` so that file dialogs inside the application can browse your local files using the same paths. Replace the dataset path with the folder that contains your datasets and GenBank files. Inside the application, navigate to `/data` whenever a file or folder selection dialog appears.
 
 ### Linux
 ```bash
 xhost +local:docker
 docker run --rm \
   -e DISPLAY=$DISPLAY \
+  -e HOST_HOME=$HOME \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
-  -v /path/to/your/data:/data \
-  <dockerhub-user>/geneessencegui:v1.0.0
+  -v /home:/home \
+  -v $HOME/Downloads/Dataset:/data \
+  geneessencegui:v1.0.0
 ```
 
 ### macOS
@@ -57,8 +59,10 @@ Install [XQuartz](https://www.xquartz.org/) first, then:
 xhost +localhost
 docker run --rm \
   -e DISPLAY=host.docker.internal:0 \
-  -v /path/to/your/data:/data \
-  <dockerhub-user>/geneessencegui:v1.0.0
+  -e HOST_HOME=$HOME \
+  -v /Users:/Users \
+  -v $HOME/Downloads/Dataset:/data \
+  geneessencegui:v1.0.0
 ```
 
 ### Windows
@@ -66,9 +70,22 @@ Install [VcXsrv](https://sourceforge.net/projects/vcxsrv/) and start it with **D
 ```powershell
 docker run --rm `
   -e DISPLAY=host.docker.internal:0 `
-  -v C:\path\to\your\data:/data `
-  <dockerhub-user>/geneessencegui:v1.0.0
+  -e HOST_HOME=$env:USERPROFILE `
+  -v C:\Users:C:\Users `
+  -v $env:USERPROFILE\Downloads\Dataset:/data `
+  geneessencegui:v1.0.0
 ```
+
+### Flag reference
+
+| Flag | Description |
+|------|-------------|
+| `--rm` | Automatically removes the container when it exits |
+| `-e DISPLAY` | Forwards the display to the X server (XQuartz on macOS, VcXsrv on Windows) so the GUI window opens on your machine |
+| `-e HOST_HOME` | Passes your home directory path into the container so the application can resolve paths correctly |
+| `-v /tmp/.X11-unix` | *(Linux only)* Shares the X11 socket for GUI rendering |
+| `-v /home:/home` / `-v /Users:/Users` / `-v C:\Users:C:\Users` | Mounts your users directory so file dialogs inside the app can browse local files using the same paths |
+| `-v .../Dataset:/data` | Mounts your dataset folder at `/data` inside the container — navigate to `/data` when selecting files in the application |
 
 ## 1.2. From source
 
@@ -149,7 +166,7 @@ This sub-folder contains the raw genomic input files needed to reproduce the sam
 
 # 4. Prepare Dataset
 
-<p align="justify">The dataset preparation module is accessible directly from the main window via the <strong>PREPARE DATASET</strong> button. It uses the bundled <code>prepareDataset2RNA.jar</code> module to convert raw genomic files into the CSV format accepted by GeneEssenceGUI. Java must be installed and available in the system PATH.</p>
+<p align="justify">The dataset preparation module is accessible directly from the main window via the <strong>PREPARE DATASET</strong> button. It uses the bundled <code>prepareDataset2RNA.jar</code> module to convert raw genomic files into the CSV format accepted by GeneEssenceGUI.</p>
 
 Two preparation modes are available, each shown as a selectable card:
 
