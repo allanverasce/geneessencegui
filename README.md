@@ -1,7 +1,7 @@
-<div align="center">
-  <img src="screenshots/genne_essence.png" alt="GeneEssenceGUI Logo" width="200" style="display: block; margin-bottom: 5px;" />
-  <h1 style="margin-top: 0;">GeneEssenceGUI</h1>
-</div>
+<p align="center">
+  <img src="screenshots/genne_essence.png" alt="GeneEssenceGUI Logo" width="200" />
+</p>
+<h1 align="center">GeneEssenceGUI</h1>
 
 <p style="text-align: center;">Integrating DEG and NCBI datasets through ensemble machine learning for essential gene prediction</p>
 
