@@ -213,7 +213,8 @@ In this window, you can monitor all ongoing tasks in real time. The progress of 
 
 - Log Area Displays a detailed record of each step being executed, allowing you to track the status of all operations.
 - Progress Bar Provides a visual indicator of the percentage of completed tasks, making it easy to estimate how much work remains.
-- This feature ensures transparency and control over your workflow, keeping you informed about the status of all operations in progress.
+  
+*Note:* This feature ensures transparency and control over your workflow, keeping you informed about the status of all operations in progress.
 
 <p style="text-align: center;">
 <img src="screenshots/running.png" alt="10. Running" width="800" />
