@@ -2,7 +2,9 @@
   <img src="screenshots/genne_essence.png" alt="GeneEssenceGUI Logo" width="200" />
 </p>
 
+
 <h1 style="text-align: center;">GeneEssenceGUI</h1>
+
 
 <p style="text-align: center;">Integrating DEG and NCBI datasets through ensemble machine learning for essential gene prediction</p>
 
@@ -203,6 +205,19 @@ Generates the input file for the Prediction analysis. Requires one input:
 <p style="text-align: center;">
 <img src="screenshots/8. Loading Existing Projects.png" alt="9. Loading Existing Projects" width="800" />
 </p>
+
+# 7. Real-Time Task Monitoring
+
+When you select any option, whether to perform training, run predictions, or load a previously created project, you will be automatically directed to the Running Analysis window.
+
+In this window, you can monitor all ongoing tasks in real time. The progress of each step is displayed in two ways:
+
+Log Area Displays a detailed record of each step being executed, allowing you to track the status of all operations.
+
+Progress Bar Provides a visual indicator of the percentage of completed tasks, making it easy to estimate how much work remains.
+
+This feature ensures transparency and control over your workflow, keeping you informed about the status of all operations in progress.
+
 
 
 
