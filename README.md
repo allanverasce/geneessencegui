@@ -98,9 +98,9 @@ python GeneEssenceGUI.py
 
 ---
 
-# 2. Main Window
+# 2. Starting the Application
 
-<p style="text-align: justify;">When GeneEssenceGUI starts, the main window is displayed. The left sidebar shows the tool name, a brief description, a list of the four available features, and the project partners. The right panel presents two buttons to begin:</p>
+<p align="justify">When GeneEssenceGUI starts, the main window is displayed. The left sidebar shows the tool name, a brief description, a list of the four available features, and the project partners. The right panel presents two buttons to begin:</p>
 
 - **START ANALYSIS** — opens the analysis wizard (Training, Prediction, or Ensemble).
 - **PREPARE DATASET** — opens the integrated dataset preparation module.
@@ -109,11 +109,12 @@ python GeneEssenceGUI.py
 <img src="screenshots/3. Main Window.png" alt="Main Window" width="800" />
 </p>
 
+**Note**: If your dataset is suitable, you can proceed directly to the analysis type window (#5-analysis-type-selection)
 ---
 
 # 3. Dataset Format
 
-<p style="text-align: justify;">GeneEssenceGUI requires datasets in CSV (Comma-Separated Values) format. Each row represents one gene instance. All columns except the last are treated as features; the <strong>last column must be the classification label</strong> (essential or non-essential).</p>
+<p align="justify">GeneEssenceGUI requires datasets in CSV (Comma-Separated Values) format. Each row represents one gene instance. All columns except the last are treated as features; the <strong>last column must be the classification label</strong> (essential or non-essential).</p>
 
 <p style="text-align: center;">
 <img src="screenshots/2. Dataset Format.jpeg" alt="Dataset format example" width="600" />
