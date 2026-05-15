@@ -1,4 +1,4 @@
-<p style="text-align: center;">
+<p align="center">
   <img src="screenshots/genne_essence.png" alt="GeneEssenceGUI Logo" width="200" />
 </p>
 
