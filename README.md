@@ -9,7 +9,6 @@
 <p style="text-align: center;">
   <a href="https://www.python.org"><img src="https://img.shields.io/badge/Python-3.12+-blue?logo=python&logoColor=white" alt="Python 3.12+" /></a>
   <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey" alt="Platform" />
-  <a href="https://github.com/allanverasce/geneessencegui/releases/tag/v1.0.0"><img src="https://img.shields.io/badge/Download-v1.0.0-brightgreen" alt="Download v1.0.0" /></a>
 </p>
 
 ---
@@ -31,32 +30,17 @@ GeneEssenceGUI allows researchers to classify essential genes using machine lear
 - [3. Dataset Format](#3-dataset-format)
 - [4. Prepare Dataset](#4-prepare-dataset)
 - [5. Analysis Type Selection](#5-analysis-type-selection)
-- [6. Training](#6-training)
-- [7. Prediction](#7-prediction)
-- [8. Ensemble](#8-ensemble)
-- [9. Loading Existing Projects](#9-loading-existing-projects)
+- [6. Loading Existing Projects](#6-loading-existing-projects)
 
 ---
 
 # 1. Installation
 
-Three installation methods are available: downloading the pre-built executable, running via Docker, or running from source.
+Two installation methods are available: running via Docker or running from source.
 
-## 1.1. Download the executable (recommended)
+## 1.1. Docker
 
-Pre-built executables for Windows, Linux, and macOS are available on the [releases page](https://github.com/allanverasce/geneessencegui/releases/tag/v1.0.0). No Python or dependency installation required.
-
-| Platform | File |
-|---|---|
-| **Windows** | `GeneEssenceGUI.exe` |
-| **Linux** | `GeneEssenceGUI` (folder) |
-| **macOS** | `GeneEssenceGUI.app` |
-
-> **Note:** Java must be installed and available in your system PATH to use the **Prepare Dataset** feature. Download it from https://www.java.com.
-
-## 1.2. Docker
-
-> **Note:** Replace `<dockerhub-user>` with the actual Docker Hub username once the image is published.
+The `-v` flag mounts a folder from your machine into the container so that file dialogs inside the application can access your local files. Replace `/path/to/your/data` with the folder that contains your datasets and GenBank files. Inside the application, navigate to `/data` whenever a file or folder selection dialog appears.
 
 ### Linux
 ```bash
@@ -64,6 +48,7 @@ xhost +local:docker
 docker run --rm \
   -e DISPLAY=$DISPLAY \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
+  -v /path/to/your/data:/data \
   <dockerhub-user>/geneessencegui:v1.0.0
 ```
 
@@ -73,16 +58,20 @@ Install [XQuartz](https://www.xquartz.org/) first, then:
 xhost +localhost
 docker run --rm \
   -e DISPLAY=host.docker.internal:0 \
+  -v /path/to/your/data:/data \
   <dockerhub-user>/geneessencegui:v1.0.0
 ```
 
 ### Windows
 Install [VcXsrv](https://sourceforge.net/projects/vcxsrv/) and start it with **Disable access control** checked, then:
 ```powershell
-docker run --rm -e DISPLAY=host.docker.internal:0 <dockerhub-user>/geneessencegui:v1.0.0
+docker run --rm `
+  -e DISPLAY=host.docker.internal:0 `
+  -v C:\path\to\your\data:/data `
+  <dockerhub-user>/geneessencegui:v1.0.0
 ```
 
-## 1.3. From source
+## 1.2. From source
 
 Requires Python 3.12+ and Java (for the Prepare Dataset feature).
 
@@ -130,6 +119,30 @@ python GeneEssenceGUI.py
 </p>
 
 Sample datasets are provided in the `datasets/` folder of this repository.
+
+## Sample Datasets
+
+The `datasets/` folder contains ready-to-use files for each analysis mode:
+
+| File | Instances | Use |
+|------|-----------|-----|
+| `dataset1_toBuildModel.csv` | 73,324 | Training |
+| `dataset2_toBuildModel.csv` | 25,601 | Training |
+| `dataset_toBuildEnsemble.csv` | 98,925 | Ensemble |
+| `validation_to_prediction.csv` | 893 | Prediction (labeled) |
+| `validation.csv` | 893 | Prediction (unlabeled) |
+
+All files share the same structure: **20 amino acid count features** (M, F, L, I, V, S, P, T, A, Y, H, Q, N, K, D, E, C, W, R, G) representing the residue composition of each gene product. In training and ensemble files the last column (`Product Name`) holds the gene product name sourced from the DEG database and serves as the classification label. Prediction files (`validation.csv`) omit this column since labels are unknown at inference time.
+
+### `datasets/prepareDatasets/`
+
+This sub-folder contains the raw genomic input files needed to reproduce the sample datasets using the **Prepare Dataset** module:
+
+| File | Description |
+|------|-------------|
+| `DEG10.aa` | Amino acid FASTA file downloaded from DEG |
+| `deg_annotation_p.csv` | DEG annotation file (semicolon-separated, ≥ 13 columns) |
+| `genbank.zip` | GenBank files (`.gb`/`.gbk`) for the target organism — extract before use |
 
 ---
 
@@ -183,153 +196,7 @@ Generates the input file for the Prediction analysis. Requires one input:
 
 ---
 
-# 6. Training
-
-## 6.1. Project Information
-
-<p style="text-align: justify;">After selecting <strong>Training</strong>, the Project Information screen is shown. The project name must be between 5 and 10 characters. The user selects the CSV dataset file and sets the proportion of data reserved for testing (test size), from 10% to 90%.</p>
-
-<p style="text-align: justify;">If previous Training projects exist in the database, a toggle (<strong>Create new / Load existing</strong>) appears at the top. Selecting <em>Load existing</em> shows a list of saved projects whose settings are loaded automatically.</p>
-
-<p style="text-align: center;">
-<img src="screenshots/5.1. Project Information.png" alt="Project Information" width="800" />
-</p>
-
-## 6.2. Model Selection
-
-<p style="text-align: justify;">The model selection screen displays the eight available classifiers in a two-column grid. At least one model must be selected to proceed. A <strong>Select All</strong> checkbox is available at the bottom of the screen.</p>
-
-Each model card provides two action buttons:
-- **⚙** (settings) — opens the parameter configuration modal for that model. This button is only enabled after the model is selected.
-- **🔗** (link) — opens the official scikit-learn documentation for that model in the browser.
-
-<p style="text-align: center;">
-<img src="screenshots/5.2. Model Selection.png" alt="Model Selection" width="800" />
-</p>
-
-### Model Parameters
-
-<p style="text-align: justify;">Clicking ⚙ on a selected model opens a modal window listing all configurable hyperparameters for that model. Parameters can be modified or left at their default values.</p>
-
-<p style="text-align: center;">
-<img src="screenshots/Model Parameters.png" alt="Model Parameters" width="800" />
-</p>
-
-## 6.3. Metric Selection
-
-<p style="text-align: justify;">The metric selection screen lists the available evaluation metrics in a two-column grid. At least one metric must be selected. A <strong>Select All</strong> checkbox is available. The <strong>🔗</strong> button next to each metric opens its official documentation.</p>
-
-<p style="text-align: center;">
-<img src="screenshots/5.3. Metric Selection.png" alt="Metric Selection" width="800" />
-</p>
-
-## 6.4. Result Delivery
-
-<p style="text-align: justify;">The delivery screen offers two options, each presented as a selectable card that expands to show its input:</p>
-
-- **Receive by Email** — the results are compressed into a ZIP file and sent to the provided email address. A valid email format is required before proceeding.
-- **Save Locally** — the user browses for a folder on their computer where the results will be saved.
-
-<p style="text-align: center;">
-<img src="screenshots/5.4. Result Delivery.png" alt="Result Delivery" width="800" />
-</p>
-
-## 6.5. Confirmation 
-
-<p style="text-align: justify;">Before execution, all configured parameters are displayed in a summary card for review: analysis type, project name, CSV file path, test size, selected models, selected metrics, and delivery method. Clicking <strong>CONFIRM AND RUN</strong> saves the project to the database and starts the analysis.</p>
-
-<p style="text-align: center;">
-<img src="screenshots/5.5. Confirmation.png" alt="Confirmation" width="800" />
-</p>
-
-## 6.6. Execution
-
-<p style="text-align: justify;">The execution screen shows the analysis running in real time. It contains four areas:</p>
-
-- **Info bar** (top) — displays project name, analysis type, number of models, number of metrics, and elapsed time.
-- **Log terminal** (left) — a color-coded log with timestamps. Messages are tagged as `[INFO]`, `[ OK ]`, `[ERR]`, or `[WARN]`.
-- **Progress ring** (right) — a circular progress indicator showing the current completion percentage.
-- **Pipeline tracker** (right) — lists the execution steps (Load CSV → Normalize → Split Data → Train Models → Evaluate → Save Results → Deliver), highlighting the active step and marking completed ones with a checkmark.
-
-<p style="text-align: center;">
-<img src="screenshots/running.png" alt="Running Analysis" width="800" />
-</p>
-
-<p style="text-align: justify;">When the analysis completes, a green success banner appears at the top with the total elapsed time. If the results were saved locally, the output path is shown along with an <strong>Open Folder</strong> button. A <strong>+ New Analysis</strong> button allows the user to start a new session.</p>
-
-<p style="text-align: center;">
-<img src="screenshots/running_done.png" alt="Analysis Complete" width="800" />
-</p>
-
-## 6.7. Training Results
-
-<p style="text-align: justify;">The training analysis produces the following output files, organized into subfolders inside the project directory:</p>
-
-- **Models/** — one `.pkl` file per trained model, ready for use in Prediction or Ensemble analyses.
-- **Prediction/** — a CSV file with the gene classifications produced by each model on the test set.
-- **Graphs/** — performance charts comparing the evaluation metrics across all trained models.
-
----
-
-# 7. Prediction
-
-## 7.1. Project Information
-
-<p style="text-align: justify;">After selecting <strong>Prediction</strong>, the Project Information screen requests a project name (5–10 characters), the CSV file with the data to be classified, and a previously trained model file in <code>.pkl</code> format.</p>
-
-<p style="text-align: justify;">If the selected model file is large, a feasibility check is performed automatically to verify that the system has sufficient RAM to load it.</p>
-
-<p style="text-align: center;">
-<img src="screenshots/6.1. Project Information.png" alt="Project Information - Prediction" width="800" />
-</p>
-
-## 7.2. Result Delivery, Confirmation, and Execution
-
-<p style="text-align: justify;">The Delivery, Confirmation, and Execution screens follow the same structure as described in sections 6.4, 6.5, and 6.6. The pipeline tracker for Prediction shows the steps: Load CSV → Normalize → Predict → Save Results → Deliver.</p>
-
-<p style="text-align: center;">
-<img src="screenshots/6.2. Result Delivery, Confirmation, and Execution.png" alt="Result Delivery, Confirmation, and Execution" width="800" />
-</p>
-
-## 7.3. Prediction Results
-
-The prediction analysis produces a CSV file containing the classification (essential / non-essential) for each gene in the input dataset.
-
----
-
-# 8. Ensemble
-
-## 8.1. Project Information
-
-<p style="text-align: justify;">After selecting <strong>Ensemble</strong>, the Project Information screen requests a project name (5–10 characters), the CSV dataset for evaluation, a <strong>directory containing previously trained <code>.pkl</code> model files</strong>, and the test size proportion. The models in that directory are combined using a hard-voting strategy via scikit-learn's <code>VotingClassifier</code>.</p>
-
-<p style="text-align: center;">
-<img src="screenshots/7.1. Project Information.png" alt="Project Information - Ensemble" width="800" />
-</p>
-
-## 8.2. Metric Selection
-
-<p style="text-align: justify;">The Ensemble wizard includes a metric selection step (same as Training, section 6.3) but skips individual model selection, since the models are loaded directly from the specified directory.</p>
-
-## 8.3. Result Delivery, Confirmation, and Execution
-
-<p style="text-align: justify;">The Delivery, Confirmation, and Execution screens follow the same structure as described in sections 6.4, 6.5, and 6.6. The pipeline tracker for Ensemble shows: Load CSV → Normalize → Split Data → Aggregate Models → Evaluate → Save Results → Deliver.</p>
-
-<p style="text-align: center;">
-<img src="screenshots/7.3. Result Delivery, Confirmation, and Execution.png" alt="8.3. Result Delivery, Confirmation, and Execution" width="800" />
-</p>
-
-## 8.4. Ensemble Results
-
-The ensemble analysis produces:
-
-- **Models/** — the combined VotingClassifier saved as a single `.pkl` file.
-- **Prediction/** — a CSV file with the ensemble predictions on the test set.
-- **Graphs/** — performance charts for the combined model.
-
----
-
-# 9. Loading Existing Projects
+# 6. Loading Existing Projects
 
 <p style="text-align: justify;">If projects of the same analysis type have been previously saved, the Project Information screen displays a segmented toggle at the top with two options: <strong>Create new</strong> and <strong>Load existing</strong>. Switching to <em>Load existing</em> shows a dropdown list of all saved projects for that type. Selecting a project loads all its previously configured parameters automatically, allowing the analysis to be re-run without re-entering information.</p>
 

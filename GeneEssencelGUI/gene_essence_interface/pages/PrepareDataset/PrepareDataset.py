@@ -92,8 +92,9 @@ class PrepareDataset(Frame):
         self._run_btn = CustomButton(btn_frame, text='NEXT →', variant='primary',
                                      state=DISABLED, command=self._proceed)
         self._run_btn.pack(side=RIGHT)
-        CustomButton(btn_frame, text='← BACK', variant='secondary',
-                     command=self.controller.go_back).pack(side=RIGHT, padx=(0, 8))
+        self._back_btn = CustomButton(btn_frame, text='← BACK', variant='secondary',
+                                      command=lambda: self.controller.show_page('StartPage'))
+        self._back_btn.pack(side=RIGHT, padx=(0, 8))
 
         title_area = Frame(self._right, bg=BG)
         title_area.pack(fill=X, padx=20, pady=(20, 0))
@@ -266,3 +267,6 @@ class PrepareDataset(Frame):
             }
         self.controller.set_prepare_params(params)
         self.controller.show_page('RunPreparation')
+
+    def on_show(self):
+        self._back_btn.pack(side=RIGHT, padx=(0, 8))

@@ -463,7 +463,7 @@ class RunAnalysis(Frame):
             elif sys.platform == 'darwin':
                 subprocess.run(['open', path], check=True)
             else:
-                for cmd in ['xdg-open', 'gnome-open', 'kde-open']:
+                for cmd in ['pcmanfm', 'nautilus', 'thunar', 'xdg-open']:
                     try:
                         subprocess.run([cmd, path], check=True)
                         return

@@ -36,8 +36,9 @@ class ChooseAnalysisType(Frame):
 
         CustomButton(btn_frame, text='NEXT →', variant='primary',
                      command=self._proceed).pack(side=RIGHT)
-        CustomButton(btn_frame, text='← BACK', variant='secondary',
-                     command=lambda: self.controller.show_page('StartPage')).pack(side=RIGHT, padx=(0, 8))
+        self._back_btn = CustomButton(btn_frame, text='← BACK', variant='secondary',
+                                      command=lambda: self.controller.show_page('StartPage'))
+        self._back_btn.pack(side=RIGHT, padx=(0, 8))
 
         # Title
         title_area = Frame(content, bg=COLORS['background_alt'])
@@ -63,6 +64,7 @@ class ChooseAnalysisType(Frame):
 
     def on_show(self):
         self._update_sidebar()
+        self._back_btn.pack(side=RIGHT, padx=(0, 8))
 
     def _proceed(self):
         self.controller.set_analyse_type(self.radio_var.get())

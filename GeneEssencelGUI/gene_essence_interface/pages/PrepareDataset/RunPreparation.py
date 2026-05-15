@@ -1,5 +1,6 @@
 import os
 import subprocess
+import sys
 import threading
 import time
 from tkinter import *
@@ -243,10 +244,22 @@ class RunPreparation(Frame):
     # ── Actions ───────────────────────────────────────────────────────────────
 
     def _open_output_folder(self):
-        if self._out_dir and os.path.exists(self._out_dir):
+        if not (self._out_dir and os.path.exists(self._out_dir)):
+            return
+        if sys.platform == 'win32':
+            os.startfile(self._out_dir)
+        elif sys.platform == 'darwin':
             subprocess.Popen(['open', self._out_dir])
+        else:
+            for cmd in ['pcmanfm', 'nautilus', 'thunar', 'xdg-open']:
+                try:
+                    subprocess.Popen([cmd, self._out_dir])
+                    return
+                except FileNotFoundError:
+                    continue
 
     def _new_preparation(self):
         if self._process and self._process.poll() is None:
             self._process.terminate()
+        self.controller.page_history = []
         self.controller.show_page('PrepareDataset')

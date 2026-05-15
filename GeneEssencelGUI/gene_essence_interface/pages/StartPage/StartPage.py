@@ -27,30 +27,34 @@ class StartPage(Frame):
         left.pack(side=LEFT, fill=Y)
         left.pack_propagate(False)
 
-        inner = Frame(left, bg=COLORS['sidebar_bg'])
-        inner.pack(fill=BOTH, expand=True, padx=16, pady=24)
+        # Partners no bottom — igual ao NavigationSidebar (packed primeiro para grudar embaixo)
+        build_partners_footer(left, COLORS['sidebar_bg'])
 
-        # Logo lateral — composta sobre o fundo escuro da sidebar
+        # Logo — mesmo frame/tamanho/fonte do NavigationSidebar._build_logo
+        f = Frame(left, bg=COLORS['sidebar_bg'])
+        f.pack(fill=X, padx=14, pady=(20, 8))
+
         sidebar_hex = COLORS['sidebar_bg'].lstrip('#')
         sidebar_rgb = tuple(int(sidebar_hex[i:i+2], 16) for i in (0, 2, 4))
-        raw = Image.open(resource_path("assets/gene_essence_logo.png")).resize((48, 48), Image.LANCZOS).convert('RGBA')
-        bg = Image.new('RGBA', raw.size, sidebar_rgb + (255,))
-        bg.paste(raw, mask=raw.split()[3])
-        self._sidebar_logo_img = ImageTk.PhotoImage(bg.convert('RGB'))
-        Label(inner, image=self._sidebar_logo_img, bg=COLORS['sidebar_bg']).pack(anchor=CENTER, pady=(0, 10))
+        raw = Image.open(resource_path("assets/gene_essence_logo.png")).resize((42, 42), Image.LANCZOS).convert('RGBA')
+        bg_img = Image.new('RGBA', raw.size, sidebar_rgb + (255,))
+        bg_img.paste(raw, mask=raw.split()[3])
+        self._sidebar_logo_img = ImageTk.PhotoImage(bg_img.convert('RGB'))
+        Label(f, image=self._sidebar_logo_img, bg=COLORS['sidebar_bg']).pack(anchor=CENTER, pady=(0, 6))
 
-        Label(inner, text='GeneEssenceGUI', bg=COLORS['sidebar_bg'],
-              fg=COLORS['primary'], font=('Arial', 16, 'bold')).pack(anchor=CENTER)
-        Label(inner, text='Integrating DEG and NCBI datasets through ensemble machine learning for essential gene prediction', bg=COLORS['sidebar_bg'],
-              fg='#9AA5B4', font=('Arial', 10), wraplength=162, justify=CENTER).pack(anchor=CENTER, pady=(4, 0))
+        Label(f, text='GeneEssenceGUI', bg=COLORS['sidebar_bg'],
+              fg=COLORS['primary'], font=('Arial', 12, 'bold')).pack()
+        Label(f, text='Integrating DEG and NCBI datasets through ensemble machine learning for essential gene prediction',
+              bg=COLORS['sidebar_bg'], fg='#9AA5B4',
+              font=('Arial', 10), wraplength=162, justify=CENTER).pack(pady=(4, 0))
 
-        # Divider
-        Frame(inner, bg=COLORS['sidebar_divider'], height=1).pack(fill=X, pady=14)
+        # Divider — igual ao NavigationSidebar._build_divider
+        Frame(left, bg=COLORS['sidebar_divider'], height=1).pack(fill=X, padx=12, pady=(8, 0))
 
-        # Features — bold label + description
+        # Features
         for label, desc in FEATURES:
-            row = Frame(inner, bg=COLORS['sidebar_bg'])
-            row.pack(fill=X, pady=3)
+            row = Frame(left, bg=COLORS['sidebar_bg'])
+            row.pack(fill=X, padx=14, pady=3)
             dot = Canvas(row, width=6, height=6, bg=COLORS['sidebar_bg'], highlightthickness=0)
             dot.pack(side=LEFT, padx=(0, 8), pady=(5, 0))
             dot.create_oval(0, 0, 6, 6, fill=COLORS['primary'], outline='')
@@ -60,9 +64,6 @@ class StartPage(Frame):
                   font=('Arial', 10, 'bold'), anchor=W).pack(anchor=W)
             Label(text_frame, text=desc, bg=COLORS['sidebar_bg'], fg='#9AA5B4',
                   font=('Arial', 9), wraplength=140, justify=LEFT, anchor=W).pack(anchor=W)
-
-        # Partners at bottom
-        build_partners_footer(left, COLORS['sidebar_bg'])
 
     def _build_right(self):
         right = Frame(self, bg=COLORS['background_alt'])
