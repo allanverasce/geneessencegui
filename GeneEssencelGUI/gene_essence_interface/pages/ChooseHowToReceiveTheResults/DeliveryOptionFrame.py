@@ -1,7 +1,7 @@
 import os
 import re
 from tkinter import *
-from tkinter import filedialog
+from gene_essence_interface.pages.components.CustomFileDialog import ask_directory
 
 from gene_essence_interface.config.colors import COLORS
 from gene_essence_interface.pages.components.CustomButton import CustomButton
@@ -201,7 +201,7 @@ class DeliveryOptionFrame(Frame):
         self._update_next()
 
     def _select_dir(self):
-        path = filedialog.askdirectory(title='Select Directory', initialdir=get_initial_dir())
+        path = ask_directory(self, title='Select Directory', initialdir=get_initial_dir())
         if path:
             self._dir_label.config(text=os.path.basename(path),
                                    fg=COLORS['success'], bg='#F7F8FA')

@@ -1,5 +1,6 @@
-import webbrowser
 from tkinter import *
+
+from gene_essence_interface.utils.open_url import open_url
 
 from gene_essence_interface.config.colors import COLORS
 from gene_essence_interface.pages.components.CustomButton import CustomButton
@@ -54,7 +55,7 @@ class ModelParameterFrame(Frame):
                          highlightthickness=1, highlightbackground='#63C2D1',
                          padx=7, pady=2)
             docs.pack(side=LEFT, padx=(0, 8))
-            docs.bind('<Button-1>', lambda e: webbrowser.open(url))
+            docs.bind('<Button-1>', lambda e, u=url: open_url(u, self))
 
         close_btn = Label(right, text='×', bg='#F7F8FA', fg='#64748B',
                           font=('Arial', 14), cursor='hand2',

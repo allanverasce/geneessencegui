@@ -1,6 +1,7 @@
-import webbrowser
 from tkinter import *
 from tkinter import messagebox
+
+from gene_essence_interface.utils.open_url import open_url
 
 from gene_essence_interface.config.colors import COLORS
 from gene_essence_interface.database.queries.get_metrics import get_metrics
@@ -86,7 +87,7 @@ class ChooseMetrics(Frame):
                              on_toggle=self._update_next)
             card.grid(row=row, column=col, padx=5, pady=5, sticky='ew')
 
-            web_btn = self._icon_btn(card.right_slot, '🔗',
+            web_btn = self._icon_btn(card.right_slot, '↗',
                                      lambda url=metric.get('url'): self._open_url(url))
             web_btn.pack(side=LEFT, padx=2)
 
@@ -131,7 +132,7 @@ class ChooseMetrics(Frame):
 
     def _open_url(self, url):
         if url:
-            webbrowser.open(url)
+            open_url(url, self)
         else:
             messagebox.showerror('Error', 'URL not available for this metric.')
 

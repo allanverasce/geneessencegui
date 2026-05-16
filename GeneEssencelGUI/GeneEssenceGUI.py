@@ -32,6 +32,16 @@ class GeneEssenceGUI(Tk):
         except Exception as e:
             print(f"Error loading icon: {e}")
 
+        self.tk.call('tk_setPalette',
+                     'background', '#FFFFFF',
+                     'foreground', '#000000',
+                     'activeBackground', '#E2E8F0',
+                     'activeForeground', '#000000',
+                     'selectBackground', '#CBD5E1',
+                     'selectForeground', '#000000',
+                     'highlightBackground', '#FFFFFF',
+                     'troughColor', '#E2E8F0')
+
         initialize_database()
 
         self.page_manager = PageManager(self)

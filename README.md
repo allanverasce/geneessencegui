@@ -42,7 +42,7 @@ Two installation methods are available: running via Docker or running from sourc
 
 ## 1.1. Docker
 
-The container receives your home directory via `-e HOST_HOME` and mounts it with `-v` so that file dialogs inside the application can browse your local files using the same paths. Replace the dataset path with the folder that contains your datasets and GenBank files. Inside the application, navigate to `/data` whenever a file or folder selection dialog appears.
+The container receives your home directory via `-e HOST_HOME` and mounts it with `-v` so that file dialogs inside the application can browse your local files using the same paths.
 
 ### Linux
 ```bash
@@ -52,8 +52,7 @@ docker run --rm \
   -e HOST_HOME=$HOME \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -v /home:/home \
-  -v $HOME/Downloads/Dataset:/data \
-  geneessencegui:v1.0.0
+  engbio/geneessencegui:v1.0
 ```
 
 ### macOS
@@ -64,19 +63,34 @@ docker run --rm \
   -e DISPLAY=host.docker.internal:0 \
   -e HOST_HOME=$HOME \
   -v /Users:/Users \
-  -v $HOME/Downloads/Dataset:/data \
-  geneessencegui:v1.0.0
+  engbio/geneessencegui:v1.0
 ```
 
 ### Windows
-Install [VcXsrv](https://sourceforge.net/projects/vcxsrv/) and start it with **Disable access control** checked, then:
+
+**Step 1 — Install VcXsrv**
+
+Open PowerShell as Administrator and run:
+```powershell
+winget install marha.VcXsrv
+```
+
+**Step 2 — Configure and start XLaunch**
+
+1. Open the Start menu and search for **XLaunch**.
+2. Advance through the screens keeping the default options.
+3. On the **Extra settings** screen, check **Disable access control**.
+4. Finish the wizard. VcXsrv will run in the background (X icon in the system tray).
+
+**Step 3 — Run the container**
+
+With XLaunch running in the background, open PowerShell and run:
 ```powershell
 docker run --rm `
-  -e DISPLAY=host.docker.internal:0 `
+  -e DISPLAY=host.docker.internal:0.0 `
   -e HOST_HOME=$env:USERPROFILE `
-  -v C:\Users:C:\Users `
-  -v $env:USERPROFILE\Downloads\Dataset:/data `
-  geneessencegui:v1.0.0
+  -v "C:/Users:/home" `
+  engbio/geneessencegui:v1.0
 ```
 
 ### Flag reference
@@ -87,8 +101,7 @@ docker run --rm `
 | `-e DISPLAY` | Forwards the display to the X server (XQuartz on macOS, VcXsrv on Windows) so the GUI window opens on your machine |
 | `-e HOST_HOME` | Passes your home directory path into the container so the application can resolve paths correctly |
 | `-v /tmp/.X11-unix` | *(Linux only)* Shares the X11 socket for GUI rendering |
-| `-v /home:/home` / `-v /Users:/Users` / `-v C:\Users:C:\Users` | Mounts your users directory so file dialogs inside the app can browse local files using the same paths |
-| `-v .../Dataset:/data` | Mounts your dataset folder at `/data` inside the container — navigate to `/data` when selecting files in the application |
+| `-v /home:/home` / `-v /Users:/Users` / `-v "C:/Users:/home"` | Mounts your users directory so file dialogs inside the app can browse local files using the same paths |
 
 ## 1.2. From source
 

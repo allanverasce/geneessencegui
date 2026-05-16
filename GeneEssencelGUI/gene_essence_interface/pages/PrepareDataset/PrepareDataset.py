@@ -1,7 +1,7 @@
 import csv
 import os
 from tkinter import *
-from tkinter import filedialog
+from gene_essence_interface.pages.components.CustomFileDialog import ask_directory, ask_open_filename
 
 from gene_essence_interface.config.colors import COLORS
 from gene_essence_interface.pages.PrepareDataset.PrepareDatasetSidebar import PrepareDatasetSidebar
@@ -199,7 +199,7 @@ class PrepareDataset(Frame):
     # ── Browse helpers ────────────────────────────────────────────────────────
 
     def _browse_annotation(self):
-        path = filedialog.askopenfilename(
+        path = ask_open_filename(self, title='Select annotation file',
             filetypes=[('CSV files', '*.csv'), ('All files', '*.*')])
         if not path:
             return
@@ -213,7 +213,7 @@ class PrepareDataset(Frame):
             self._annotation_var.set('')
 
     def _browse_fasta(self):
-        path = filedialog.askopenfilename(
+        path = ask_open_filename(self, title='Select FASTA file',
             filetypes=[('FASTA files', '*.fasta *.fa *.aa'), ('All files', '*.*')])
         if not path:
             return
@@ -227,7 +227,7 @@ class PrepareDataset(Frame):
             self._fasta_var.set('')
 
     def _browse_genbank(self, var, lbl):
-        path = filedialog.askdirectory()
+        path = ask_directory(self, title='Select GenBank directory')
         if not path:
             return
         if self._validate_genbank_dir(path):

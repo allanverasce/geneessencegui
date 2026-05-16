@@ -1,6 +1,6 @@
 import os
 from tkinter import *
-from tkinter import filedialog
+from gene_essence_interface.pages.components.CustomFileDialog import ask_directory, ask_open_filename
 import csv
 
 from gene_essence_interface.config.colors import COLORS
@@ -31,8 +31,16 @@ class InformationProjectFrame(RoundedCard):
         self._separators = []
 
         self._build_form()
-        self.project_name_var.trace_add('write', self._on_name_changed)
+        self._name_trace_id = self.project_name_var.trace_add('write', self._on_name_changed)
+        self.bind('<Destroy>', self._on_destroy)
         self.after(0, self._force_render)
+
+    def _on_destroy(self, event):
+        if event.widget is self:
+            try:
+                self.project_name_var.trace_remove('write', self._name_trace_id)
+            except Exception:
+                pass
 
     def _force_render(self):
         if self.winfo_exists():
@@ -95,8 +103,8 @@ class InformationProjectFrame(RoundedCard):
         self._char_count.pack(side=LEFT, padx=(6, 0))
 
         self._name_error = Label(self._body, text='', fg=COLORS['error'],
-                                 bg=COLORS['card_bg'], font=('Arial', 9))
-        self._name_error.pack(anchor=W, padx=14)
+                                 bg=COLORS['card_bg'], font=('Arial', 9), anchor=W)
+        self._name_error.pack(anchor=W, padx=14, fill=X, pady=(0, 4))
 
     def _create_file_field(self):
         right = self._row('CSV file')
@@ -141,16 +149,22 @@ class InformationProjectFrame(RoundedCard):
         sb.insert(0, '0.3')
 
     def _on_name_changed(self, *args):
-        if not hasattr(self, '_name_error') or not self._name_error.winfo_exists():
-            return
         val = self.project_name_var.get()
         count = len(val)
 
-        if hasattr(self, '_char_count') and self._char_count.winfo_exists():
-            self._char_count.config(text=f'{count}/10')
+        try:
+            if hasattr(self, '_char_count') and self._char_count.winfo_exists():
+                self._char_count.config(text=f'{count}/10')
+        except Exception:
+            pass
+
+        if not hasattr(self, '_name_error') or not self._name_error.winfo_exists():
+            return
 
         if count > 10:
             self._name_error.config(text='Max 10 characters.')
+        elif 0 < count < 5:
+            self._name_error.config(text='Min 5 characters.')
         elif check_project_exists(val) and count >= 5:
             self._name_error.config(text='Project name already exists.')
         else:
@@ -164,9 +178,10 @@ class InformationProjectFrame(RoundedCard):
         required = numeric_cols if self.analyse_type == 'Prediction' else numeric_cols + ["Product Name"]
         with open(file_path, newline='') as csvfile:
             reader = csv.DictReader(csvfile)
-            if reader.fieldnames != required:
+            fieldnames = [f for f in (reader.fieldnames or []) if f.strip()]
+            if fieldnames != required:
                 return False
-            for row in reader:
+            for i, row in enumerate(reader):
                 for col in numeric_cols:
                     try:
                         if int(row[col]) < 0:
@@ -176,7 +191,7 @@ class InformationProjectFrame(RoundedCard):
         return True
 
     def _select_file(self):
-        path = filedialog.askopenfilename(filetypes=[('CSV files', '*.csv')], title='Select a CSV file')
+        path = ask_open_filename(self, filetypes=[('CSV files', '*.csv')], title='Select a CSV file', initialdir=get_initial_dir())
         if path:
             if self._validate_csv(path):
                 self._file_label.config(text=f'✓ {os.path.basename(path)}', fg=COLORS['success'])
@@ -190,7 +205,7 @@ class InformationProjectFrame(RoundedCard):
         self.update_callback()
 
     def _select_model_file(self):
-        path = filedialog.askopenfilename(filetypes=[('Model files', '*.pkl')], title='Select model file')
+        path = ask_open_filename(self, filetypes=[('Model files', '*.pkl')], title='Select model file', initialdir=get_initial_dir())
         if path:
             self._model_label.config(text=f'✓ {os.path.basename(path)}', fg=COLORS['success'])
             self.model_file_path_var.set(path)
@@ -200,7 +215,7 @@ class InformationProjectFrame(RoundedCard):
         self.update_callback()
 
     def _select_directory(self):
-        path = filedialog.askdirectory(title='Select models directory', initialdir=get_initial_dir())
+        path = ask_directory(self, title='Select models directory', initialdir=get_initial_dir())
         if path:
             if [f for f in os.listdir(path) if f.endswith('.pkl')]:
                 self._dir_label.config(text=f'✓ {os.path.basename(path)}', fg=COLORS['success'])

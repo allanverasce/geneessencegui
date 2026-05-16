@@ -1,6 +1,7 @@
-import webbrowser
 from tkinter import *
 from tkinter import messagebox
+
+from gene_essence_interface.utils.open_url import open_url
 
 from gene_essence_interface.config.colors import COLORS
 from gene_essence_interface.database.queries.get_models import get_models
@@ -91,7 +92,7 @@ class ChooseModels(Frame):
                              on_toggle=lambda m=model, v=var: self._on_toggle(m, v))
             card.grid(row=row, column=col, padx=5, pady=5, sticky='ew')
 
-            web_btn = self._icon_btn(card.right_slot, '🔗',
+            web_btn = self._icon_btn(card.right_slot, '↗',
                                      lambda url=model.get('url'): self._open_url(url),
                                      enabled=True, active=False)
             web_btn.pack(side=LEFT, padx=2)
@@ -190,7 +191,7 @@ class ChooseModels(Frame):
 
     def _open_url(self, url):
         if url:
-            webbrowser.open(url)
+            open_url(url, self)
         else:
             messagebox.showerror('Error', 'URL not available for this model.')
 
