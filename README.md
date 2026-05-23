@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">GeneEssenceGUI</h1>
 
-<p style="text-align: center;">Integrating DEG and NCBI datasets through ensemble machine learning for essential gene prediction</p>
+<p style="text-align: center;">An ensemble machine learning tool for prokaryotic essential gene prediction based on DEG and NCBI repositories</p>
 
 <p style="text-align: center;">
   <a href="https://www.python.org"><img src="https://img.shields.io/badge/Python-3.12+-blue?logo=python&logoColor=white" alt="Python 3.12+" /></a>
