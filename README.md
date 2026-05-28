@@ -166,7 +166,7 @@ The `datasets/` folder contains ready-to-use files for each analysis mode:
 | `validation_to_prediction.csv` | 893 | Prediction (labeled) |
 | `validation.csv` | 893 | Prediction (unlabeled) |
 
-<p align="justify">All files share the same structure: **20 amino acid count features** (M, F, L, I, V, S, P, T, A, Y, H, Q, N, K, D, E, C, W, R, G) representing the residue composition of each gene product. In training and ensemble files the last column (`Product Name`) holds the gene product name sourced from the DEG database and serves as the classification label. Prediction files (`validation.csv`) omit this column since labels are unknown at inference time.</p>
+<p align="justify">All files share the same structure: 20 amino acid count features (M, F, L, I, V, S, P, T, A, Y, H, Q, N, K, D, E, C, W, R, G) representing the residue composition of each gene product. In training and ensemble files the last column (`Product Name`) holds the gene product name sourced from the DEG database and serves as the classification label. Prediction files (`validation.csv`) omit this column since labels are unknown at inference time.</p>
 
 ### `datasets/prepareDatasets/`
 
